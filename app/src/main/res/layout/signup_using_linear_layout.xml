@@ -17,7 +17,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
@@ -29,7 +29,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
@@ -41,7 +41,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
@@ -53,7 +53,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
@@ -65,7 +65,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
@@ -77,7 +77,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/border"
