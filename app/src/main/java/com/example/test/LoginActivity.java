@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 
 import android.app.Activity;
@@ -24,12 +25,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText edtEmail,edtPassword;
     private AppCompatButton btnLogin;
     private TextView txtForgotPassword, txtSignup, txtWelcome;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+        initToolbar();
         findView();
+    }
+    private void initToolbar(){
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Login");
     }
     private void findView(){
         edtEmail = findViewById(R.id.edtEmail);
