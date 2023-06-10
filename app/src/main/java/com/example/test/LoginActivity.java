@@ -16,10 +16,14 @@ import androidx.core.app.ActivityOptionsCompat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText edtEmail,edtPassword;
@@ -41,6 +45,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Login");
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.home){
+            Toast.makeText(this,"home icon clicked", Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId()== R.id.search){
+            Toast.makeText(this,"search icon clicked", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void findView(){
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword= findViewById(R.id.edtPassword);
@@ -50,15 +72,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtSignup = findViewById(R.id.txtSignup);
         btnLogin.setOnClickListener(this);
         txtSignup.setOnClickListener(this);
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(edtEmail.getText().toString().isEmpty()&&edtPassword.getText().toString().isEmpty()){
-//
-//
-//                }
-//            }
-//        });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(edtEmail.getText().toString().isEmpty()&&edtPassword.getText().toString().isEmpty()){
+                    Toast.makeText(LoginActivity.this,"username and password is empty",Toast.LENGTH_LONG).show();
+                }
+                else if(edtPassword.getText().toString().isEmpty()) {
+                    Toast.makeText(LoginActivity.this,"password is empty",Toast.LENGTH_LONG).show();
+                }
+                else if(edtEmail.getText().toString().isEmpty()){
+                    Toast.makeText(LoginActivity.this,"Username is empty",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    LaunchDashBoardActivity();
+                }
+            }
+        });
+    }
+
+    private void LaunchDashBoardActivity(){
+        Intent intent = new Intent(this, DashboardActivity.class);
     }
 
     @Override
@@ -67,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
         else if(view.getId()==R.id.txtSignup){
-            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+            Intent intent = new Intent(LoginActivity.this, ListActivity.class);
             intent.putExtra("Email","Email Address");
             signupActivityLauncher.launch(intent);
 //            edtEmail.getText().toString().trim()
